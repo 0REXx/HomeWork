@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Убедитесь, что ваш файл стилей правильно подключен -->
+    <!-- Подключаем React и ReactDOM с CDN для упрощения разработки -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <!-- Babel для трансляции JSX напрямую в браузере -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav>
+        <ul>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#register">Register</a></li>
+            <li><a href="#transactions">Transactions</a></li>
+            <li><a href="#goals">Goals</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Корневой контейнер, куда React будет рендерить приложение -->
+    <div id="root"></div>
+
+    <!-- Основной скрипт вашего React приложения -->
+    <script type="text/babel">
+        // React Router для маршрутизации
+        const { BrowserRouter, Switch, Route, Link } = ReactRouterDOM;
+
+        // Компоненты
+        const App = () => (
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
+                    <Route path="/transactions" exact component={TransactionList} />
+                    <Route path="/transactions/add" component={AddTransaction} />
+                    <Route path="/goals" exact component={GoalList} />
+                    <Route path="/goals/add" component={AddGoal} />
+                </Switch>
+            </BrowserRouter>
+        );
+
+        // Компоненты для каждого раздела
+        const Login = () => (
+            <div>Login Form Here</div>
+        );
+
+        const Register = () => (
+            <div>Registration Form Here</div>
+        );
+
+        const TransactionList = () => (
+            <div>List of Transactions</div>
+        );
+
+        const AddTransaction = () => (
+            <div>Add Transaction Form</div>
+        );
+
+        const GoalList = () => (
+            <div>List of Goals</div>
+        );
+
+        const AddGoal = () => (
+            <div>Add Goal Form</div>
+        );
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
